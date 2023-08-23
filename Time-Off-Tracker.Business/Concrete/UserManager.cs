@@ -43,5 +43,10 @@ namespace Time_Off_Tracker.Business.Concrete
         {
          _userDal.Update(t);
         }
+
+        public User SGetByUsername(string username)
+        {
+            return _userDal.GetList().FirstOrDefault(x => x.UserName == username);
+        }
     }
 }

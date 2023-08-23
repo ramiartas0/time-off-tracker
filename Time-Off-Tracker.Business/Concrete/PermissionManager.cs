@@ -28,6 +28,11 @@ namespace Time_Off_Tracker.Business.Concrete
             return _permissionDal.GetById(id);
         }
 
+        public Permission SGetByUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Permission> SGetList()
         {
            return _permissionDal.GetList();

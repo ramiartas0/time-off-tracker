@@ -38,9 +38,5 @@ namespace Time_Off_Tracker.API.Controllers
         {
             return Ok();
         }
-
-
-
-
     }
 }

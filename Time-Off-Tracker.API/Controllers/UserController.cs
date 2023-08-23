@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Time_Off_Tracker.Business.Abstract;
+using Time_Off_Tracker.Entity.Concrete;
 
 namespace Time_Off_Tracker.API.Controllers
 {
@@ -7,6 +9,13 @@ namespace Time_Off_Tracker.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetUser(int id)
         {
@@ -33,15 +42,17 @@ namespace Time_Off_Tracker.API.Controllers
         }
 
         [HttpPost("password-changes")]
-        public IActionResult AddUser()
+        public IActionResult AddUser(User user)
         {
+            _userService.SInsert(user);
             return Ok();
         }
 
         [HttpGet]
         public IActionResult UserList()
         {
-            return Ok();
+            var values =  _userService.SGetList();
+            return Ok(values);
         }
 
 

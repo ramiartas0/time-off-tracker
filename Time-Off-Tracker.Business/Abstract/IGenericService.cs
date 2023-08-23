@@ -14,5 +14,8 @@ namespace Time_Off_Tracker.Business.Abstract
         List<T> SGetList();
 
         T SGetById(int id);
+
+        // Kullanıcı adına göre kullanıcı getiren metot
+        T SGetByUsername(string username);
     }
 }

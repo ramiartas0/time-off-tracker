@@ -9,5 +9,6 @@ namespace Time_Off_Tracker.Business.Abstract
 {
     public interface IPermissionService: IGenericService<Permission>
     {
+
     }
 }
